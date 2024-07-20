@@ -11,7 +11,7 @@ public class RemoveAwarenessAction extends Action {
 
     @Override
     public void doAction(Entity entity) {
-        if (!(entity instanceof Mob mob)) {
+        if (!(entity instanceof Mob mob) || entity.fromMobSpawner()) {
             return;
         }
         mob.setAware(false);
@@ -19,7 +19,7 @@ public class RemoveAwarenessAction extends Action {
 
     @Override
     public void undoAction(Entity entity) {
-        if (!(entity instanceof Mob mob)) {
+        if (!(entity instanceof Mob mob) || entity.fromMobSpawner()) {
             return;
         }
         mob.setAware(true);
